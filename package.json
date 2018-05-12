@@ -8,11 +8,16 @@
     "author": "BTL GROUP LTD",
     "dependencies": {
         "cross-env": "^5.1.4",
+        "eslint": "^4.9.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-react": "^7.4.0",
         "interbit-cli": "0.4.22",
         "interbit-covenant-tools": "0.4.22",
         "interbit-platform-tools": "0.4.22",
         "interbit-ui-components": "0.4.22",
         "interbit-ui-tools": "0.4.22",
+        "prop-types": "^15.6.1",
         "react": "^16.2.0",
         "react-bootstrap": "^0.32.1",
         "react-dom": "^16.2.0",
@@ -25,9 +30,12 @@
         "redux-devtools-extension": "^2.13.2",
         "redux-saga": "^0.16.0",
         "seamless-immutable": "^7.1.2",
+        "semantic-ui": "^2.3.1",
+        "semantic-ui-react": "^0.80.0",
         "serve": "^6.5.5"
     },
     "devDependencies": {
+        "gulp": "^3.9.1",
         "redux-saga-test-plan": "^3.6.0"
     },
     "scripts": {
@@ -39,6 +47,7 @@
         "interbit:start": "interbit start --db-path ./db-interbit --port 5000 --dev --no-watch",
         "interbit:create": "interbit create --dev",
         "interbit:build": "interbit build",
-        "interbit:deploy": "interbit deploy --admin-keys keyPair.js"
+        "interbit:deploy": "interbit deploy --admin-keys keyPair.js",
+        "build:css": "cd semantic && gulp build"
     }
 }

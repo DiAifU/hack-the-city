@@ -1,18 +1,15 @@
-const actionTypes = require('./actionTypes')
+import actionTypes from './actionTypes';
 
 const actionCreators = {
-  memo: text => ({
-    type: actionTypes.MEMO,
-    payload: { text }
+  addRate: (farmerId, rating) => ({
+    type: actionTypes.ADD_RATING,
+    payload: { farmerId, rating },
   }),
 
-  add: number => ({
-    type: actionTypes.ADD,
-    payload: { number }
-  })
-}
+  deleteRate: ratingId => ({
+    type: actionTypes.DELETE_RATING,
+    payload: { ratingId },
+  }),
+};
 
-module.exports = {
-  actionTypes,
-  actionCreators
-}
+export { actionTypes, actionCreators };

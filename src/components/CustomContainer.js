@@ -18,8 +18,7 @@ class CustomContainer extends Component {
     return (
       <Segment loading={this.state.clicked} padded="very">
         <p>{text}</p>
-        <Button primary as={Link} to="/tgjm">Click moi</Button>
-        <Button seconday onClick={() => this.handleClick()}>Click moi</Button>
+        <Button primary as={Link} to="/pages/DataFarmer">Click me</Button>
       </Segment>
     );
   }

@@ -4,8 +4,8 @@ import { Card, Button } from 'semantic-ui-react';
 const CustomCard = props => (
   <Card {...props}>
     <Card.Content>
-      <Card.Header>Steve Sanders</Card.Header>
-      <Card.Meta>Friends of Elliot</Card.Meta>
+      <Card.Header textAlign="center">{props.name}</Card.Header>
+      <Card.Meta textAlign="center">{props.location}</Card.Meta>
       <Card.Description>
         Steve wants to add you to the group <strong>best friends</strong>
       </Card.Description>

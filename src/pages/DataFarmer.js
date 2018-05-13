@@ -7,21 +7,25 @@ const data = [
   {
     name: 'Farm 1',
     location: 'NY, NY',
+    info: 'I sell potatoes',
     score: 3,
   },
   {
     name: 'Farm 2',
     location: 'NY, NY',
+    info: 'I sell tomatoes',
     score: 4.5,
   },
   {
     name: 'Farm 3',
     location: 'NY, NY',
+    info: 'I sell cucmbers',
     score: 4.8,
   },
   {
     name: 'Farm 4',
     location: 'NY, NY',
+    info: 'I sell eggplants',
     score: 0,
   },
 ];
@@ -34,7 +38,12 @@ const DispData = () => (
           <Grid doubling stackable columns={4}>
             {data.map(farmer => (
               <Grid.Column padded="very">
-                <CustomCard name={farmer.name} location={farmer.location} />
+                <CustomCard
+                  name={farmer.name}
+                  location={farmer.location}
+                  info={farmer.info}
+                  score={farmer.score}
+                />
               </Grid.Column>
             ))}
           </Grid>

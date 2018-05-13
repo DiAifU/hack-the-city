@@ -1,26 +1,47 @@
-import React from 'react';
-import { Card, Button } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Card, Button, Rating } from 'semantic-ui-react';
 
-const CustomCard = props => (
-  <Card {...props}>
-    <Card.Content>
-      <Card.Header textAlign="center">{props.name}</Card.Header>
-      <Card.Meta textAlign="center">{props.location}</Card.Meta>
-      <Card.Description>
-        Steve wants to add you to the group <strong>best friends</strong>
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <div className="ui two buttons">
-        <Button color="green">
-          Approve
-        </Button>
-        <Button basic color="red">
-          Decline
-        </Button>
-      </div>
-    </Card.Content>
-  </Card>
-);
+class CustomCards extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { clicked: false };
+  }
 
-export default CustomCard;
+  handleClick() {
+    this.setState({ clicked: true });
+  }
+
+  render() {
+    const {
+      name, location, score, info,
+    } = this.props;
+    return (
+      <Card>
+        <Card.Content>
+          <Card.Header textAlign="center">{name}</Card.Header>
+          <Card.Meta textAlign="center">{location}</Card.Meta>
+          <br />
+          <Card.Content textAlign="center">
+            Rating: {score}
+            <br />
+            <Rating icon="star" defaultRating={score} maxRating={5} size="huge" disabled />
+          </Card.Content>
+          <br />
+          <Card.Description>{info}</Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <Button fluid color="green" inverted="true" primary onClick={() => this.handleClick()}>
+            Rate
+          </Button>
+        </Card.Content>
+        {this.state.clicked && (
+          <Card.Content textAlign="center" extra>
+            <Rating icon="star" defaultRating={0} maxRating={5} size="huge" />
+          </Card.Content>
+        )}
+      </Card>
+    );
+  }
+}
+
+export default CustomCards;

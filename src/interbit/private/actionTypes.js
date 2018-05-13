@@ -1,8 +1,8 @@
-const covenantName = 'template-private'
+const covenantName = 'template-private';
 
 const actionTypes = {
-  MEMO: `${covenantName}/MEMO`,
-  ADD: `${covenantName}/ADD`
-}
+  ADD_RATING: `${covenantName}/ADD_RATING`,
+  DELETE_RATING: `${covenantName}/DELETE_RATING`,
+};
 
-module.exports = actionTypes
+export default actionTypes;

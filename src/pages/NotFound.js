@@ -1,10 +1,14 @@
 import React from 'react';
-import { Segment } from 'semantic-ui-react';
+import { Container, Segment } from 'semantic-ui-react';
 
 const NotFound = () => (
-  <Segment>
-    Not found
-  </Segment>
+  <Container style={{ marginTop: '2em' }}>
+    <Segment.Group>
+      <Segment>
+        Not found
+      </Segment>
+    </Segment.Group>
+  </Container>
 
 );
 

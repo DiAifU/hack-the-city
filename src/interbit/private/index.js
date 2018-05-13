@@ -20,12 +20,13 @@ const reducer = (state = initialState, action) => {
       return farmerId && userKey && rating ? state.set('farmersData', farmersData) : state;
     }
 
-    case actionTypes.ADD: {
-      const { number: maybeNumber } = action.payload;
-      const number = Number(maybeNumber);
-      const runningTotal = state.getIn(['runningTotal'], 0);
-
-      return Number.isFinite(number) ? state.set('runningTotal', runningTotal + number) : state;
+    case actionTypes.DELETE_RATING: {
+      const { farmerId, ratingId, userKey } = action.payload;
+      const farmersData = state.getIn(['farmersData'], Immutable.from([]));
+      const { userKey: existingUserKey } = farmersData[farmerId].ratings[ratingId];
+      if (existingUserKey !== userKey) return state;
+      delete farmersData[farmerId].ratings[ratingId];
+      return state.set('farmersData', farmersData);
     }
 
     default:
